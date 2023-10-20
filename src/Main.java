@@ -13,7 +13,7 @@ public class Main {
         for (int i = 0;i<n; i++)
             layers[i] = new Layer(i);
 
-
+        System.out.println(layers[0]);
 
 
 
