@@ -7,35 +7,45 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
+        Layer[] layers = readFromFile();
+        System.out.println(layers[2].planets[1].tonnels);
+    }
+
+    private static Layer[] readFromFile() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("Input.txt"));
         int n = sc.nextInt(); //кол-во уровней планет, разделены *
-        Layer[] layers  = new Layer[n];
-        for (int i = 0;i<n; i++)
-            layers[i] = new Layer(i);
-
-        System.out.println(layers[0]);
-
-
-
-
-
-//        int k = sc.nextInt(); //кол-во планет на i-м уровне
-//        int[] costs = new int[10];
-//        String s = sc.nextLine();
-//        String g = sc.nextLine();
-//        System.out.println(g);
-//        ArrayList<Integer> list = new ArrayList<>();
-//        list.add()
-//        for (int i = 0; ;i++){
-//            costs[i] = sc.nextInt();
-//            if (costs[i] == 0)
-//                break;
+        Layer[] layers = new Layer[n];
+        for (int i = 0; i < n; i++) {
+            int k = sc.nextInt();
+            Planet[] planets = new Planet[k];
+            for (int s = 0; s < k; s++) {
+                ArrayList<Tonnel> tonnels = new ArrayList<>();
+                for (int v = 0; ; v++) {
+                    Tonnel tonnel = new Tonnel();
+                    tonnel.from = sc.nextInt();
+                    if (tonnel.from != 0) {
+                        tonnel.cost = sc.nextInt();
+                        tonnel.to =s+1;
+                        tonnels.add(tonnel);
+                    } else
+                        break;
+                }
+                Planet planet = new Planet(tonnels);
+                planets[s] = planet;
+            }
+            layers[i] = new Layer(planets);
+            try {
+                sc.nextLine();
+                sc.nextLine();
+            }
+            catch (java.util.NoSuchElementException ex){
+                break;
+            }
+        }
+        return layers;
     }
-       // System.out.println(Arrays.toString(costs));
-//    public static void readFromFile(String fileName) throws FileNotFoundException {
-//
-//        }
+
+}
 
 
-  }
-//}
+
