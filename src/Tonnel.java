@@ -11,6 +11,10 @@ public class Tonnel {
     public Tonnel() {
     }
 
+    public Tonnel(int to) {
+        this.to = to;
+    }
+
     @Override
     public String toString() {
         return "Tonnel{" +
