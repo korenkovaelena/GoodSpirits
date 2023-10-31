@@ -8,6 +8,18 @@ public class Tonnel {
     int to;
     int  cost;
 
+    public void setFrom(int from) {
+        this.from = from;
+    }
+
+    public void setTo(int to) {
+        this.to = to;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
     public Tonnel() {
     }
 

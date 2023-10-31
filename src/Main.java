@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -312,7 +313,62 @@ Way =
             }
 
 
+    public void initialize() throws FileNotFoundException {
+        Layer[] layers = Main.readFromFile();
 
+        HashMap<String, Planet> ways =new HashMap<>();
+
+        HashMap<String, Planet> map =new HashMap<>();
+
+        ArrayList<Tonnel> tonnels = new ArrayList<>();
+        Planet planet =new Planet(tonnels);
+        Tonnel t = new Tonnel();
+        t.setTo(1);
+        tonnels.add(t);
+
+        Tonnel tt = new Tonnel();
+        t.setTo(2);
+        tonnels.add(t);
+        tonnels.add(tt);
+
+        map.put("0.1", planet);
+
+
+        for(int  i = 0; i < layers.length; i++){
+            String mapKey;
+            for (int s = 0; s < layers[i].planets.length; s++) {
+                String key = (String.valueOf(i+1)+"."+String.valueOf(s+1));
+                map.put(key,layers[i].planets[s]);
+                for (int j = 0; j < layers[i].planets[s].tonnels.size(); j++){
+                    mapKey = i+"."+String.valueOf(layers[i].planets[s].tonnels.get(j).from);
+                    map.get(mapKey).tonnels.get(j).cost;
+                }
+            }
+
+        }
+
+
+ArrayList<Way>wwww=new ArrayList<>();
+
+        int pl=1;
+        String key= "0.1";
+        for( int j = 0; j < map.get(key).tonnels.size();j++) {
+      //  key = String.valueOf(0) +"."+String.valueOf(map.get(key).tonnels.get(j).to);
+        Way way =new Way();
+
+        for(int  i = 1; i <= layers.length; i++){
+           // key = String.valueOf(i)+"."+String.valueOf(pl);
+
+               way.cost+=map.get(key).tonnels.get(j).cost;
+               way.tonnels.add(map.get(key).tonnels.get(j));
+              key = String.valueOf(i) +"."+String.valueOf(map.get(key).tonnels.get(j).to);
+           }
+            wwww.add(way);
+        }
+
+
+
+    }
 
     private static Layer[] readFromFile() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("Input.txt"));
