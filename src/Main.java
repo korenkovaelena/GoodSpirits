@@ -370,6 +370,47 @@ ArrayList<Way>wwww=new ArrayList<>();
 
     }
 
+
+
+    public void countWays(Layer[] layers){
+int qt = 2;
+        int cost = 0;
+        Planet planet = layers[0].planets[0];
+        int p=0;
+        ArrayList<Tonnel> ways = new ArrayList<>();
+        for (int i = 0; i<layers.length;){
+            Way way = new Way(ways, cost);
+            step();
+            }
+        }
+
+    }
+
+    public void step(Layer[] layers){
+        for (int j=0; j<qt;) {
+            Way way = new Way(ways, cost);
+            ways.add(layers[i].planets[p].tonnels.get(j));
+            cost += layers[i].planets[p].tonnels.get(j).cost;
+            p = layers[i].planets[p].tonnels.get(j).to;
+        }qt=layers[i].planets[p].tonnels.size();
+    }
+
+    public void step2(Layer[] layers){
+//        int i = layers.length;
+//        int p = layers[layers.length-1].planets.length;
+
+    for (int j=0; j<qt;) {
+            Way way = new Way(ways, cost);
+            ways.add(layers[i].planets[p].tonnels.get(j));
+            cost += layers[i].planets[p].tonnels.get(j).cost;
+            p = layers[i].planets[p].tonnels.get(j).to;
+        }qt=layers[i].planets[p].tonnels.size();
+    }
+
+
+
+
+
     private static Layer[] readFromFile() throws FileNotFoundException {
         Scanner sc = new Scanner(new File("Input.txt"));
         int n = sc.nextInt(); //кол-во уровней планет, разделены *
