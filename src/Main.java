@@ -1,413 +1,50 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         Layer[] layers = readFromFile();
         System.out.println(layers[0].planets[1].tonnels);
-        chooseCheapWayh3( layers);
-    }
-
-    private static int chooseCheapWay1(Layer[] layers){
-        ArrayList<Integer> costs = new ArrayList<Integer>();
-        int c;
-        for(int i = 0; i < layers.length; i++) {
-            for (int s = 0; s < layers[i].planets.length; s++){
-                for (int j = 0; j < layers[i].planets[s].tonnels.size(); j++){
-                    c = layers[i].planets[s].tonnels.get(j).cost;
-                    costs.add(c);
-                }
-            }
-        }
-
-return 2;
-}
-
-
-
-
-
-    private static int chooseCheapWay(Layer[] layers){
-        ArrayList<Integer> costs = new ArrayList<Integer>();
-        int c=0;
-int i = 0; int s=0;
-        for (int j = 0; j < layers[i].planets[s].tonnels.size(); j++){
-            for ( s = 0; s < layers[i].planets.length; s++){
-                c=0;
-                for( i = 0; i < layers.length; i++) {
-                    c += layers[i].planets[s].tonnels.get(j).cost;
-                }
-                costs.add(c);
-                i=0;
-            }
-            s =0;
-        }
-        System.out.println(costs.get(1));
-        return 2;
-    }
-
-
-
-
-
-    private static int chooseCheapWay3(Layer[] layers){
-        ArrayList<Integer> costs = new ArrayList<Integer>();
-        int c=0;
-        int i = 0; int s=0;
-        for (int j = layers[i].planets[s].tonnels.size()-1; j >0; j--){
-            for ( s = layers[i].planets.length; s >0; s--){
-                c=0;
-                for( i = layers.length; i > 0; i++) {
-                    c += layers[i].planets[s].tonnels.get(j).cost;
-                }
-                costs.add(c);
-                i=0;
-            }
-            s =0;
-        }
-        System.out.println(costs.get(1));
-        return 2;
-    }
-
-
-    private static int chooseCheapWayh3(Layer[] layers){
-        Way way = new Way();
-        ArrayList<Tonnel>  wayTonnels  =new ArrayList<Tonnel>();
-        ArrayList<Way> ways= new ArrayList<Way>();
-        tonnels.add(new Tonnel(1));
-        ways.add(new Way(tonnels.add(new Tonnel())))
-
-
-    for (;;){
-            for(int i = 1; i < layers.length; i++) {
-                for (int s = 0; s < layers[i].planets.length; s++) {
-                    for (int j = 0; j < layers[i].planets[s].tonnels.size(); j++){
-                        if (layers[i-1].planets[s].tonnels.get(j).to ==layers[i].planets[s].tonnels.get(j).from) {
-                            ways.add(new)
-                            layers[i].planets[s].tonnels.get(j).cost;
-                        }
-
-
-                }
-            }
-            }
-
-        }
-
-
-
-        for( int i = layers.length-1; i > 0; i--) {
-            for (int s = layers[i].planets.length-1; s > 0; s--) {
-                for (int j = layers[i].planets[s].tonnels.size() - 1; j > 0; j--) {
-                    if (i == 2) {
-                        wayTonnels.add(layers[i].planets[s].tonnels.get(j));
-                        ways.add(new Way(wayTonnels));
-                    }
-                    if (layers[i].planets[s].tonnels.get(j).to == s + 1) ;
-
-                }
-
-            }}
-
-
-
-
-               ArrayList<Integer> costs = new ArrayList<>();
-        costs.add(0);
-                for(int i = 0; i < layers.length; i++)
-                    for ( int s = 0; s < layers[i].planets.length; s++)
-                        for (int j = 0; j < layers[i].planets[s].tonnels.size(); j++)
-                            if (layers[i].planets[s].tonnels.get(j).to == s + 1) {
-                                costs.get() +=layers[i].planets[s].tonnels.get(j).cost
-                                costs
-                            }
-                            wayTonnels.add(layers[i].planets[s].tonnels.get(j));
-                for(int f=0;f<tonnelQuantity;f++) {
-                    int a = layers[2].planets[1].tonnels.get(1).cost;
-
-                    System.out.println(a);
-
-                }
-
-
-
-
-
-Way =
-        int s = 0;int j = 0;
-        for(int i = 0; i < layers.length; i++) {
-            Way way = new Way();
-            for (s ; s < layers[i].planets.length; ){
-                for (j; j < layers[i].planets[s].tonnels.size(); ){
-                    if (layers[i].planets[s].tonnels.get(j).to == s + 1)
-                        wayTonnels.add(layers[i].planets[s].tonnels.get(j));
-                }
-            }s++;j++;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    ArrayList<Integer> costs = new ArrayList<>();
-                    costs.add(0);
-                    for(int i = 0; i < layers.length; i++)
-                        for ( int s = 0; s < layers[i].planets.length; s++)
-                            for (int j = 0; j < layers[i].planets[s].tonnels.size(); j++)
-                                if (layers[i].planets[s].tonnels.get(j).to == s + 1) {
-                                  ways.add(new Way())
-                                }
-
-
-
-
-
-
-
-
-
-
-
-        int tonnelQuantity = 0;
-        for(int i = 0; i < layers.length; i++)
-            for ( int s = 0; s < layers[i].planets.length; s++)
-                for (int j = 0; j < layers[i].planets[s].tonnels.size(); j++)
-                    tonnelQuantity++;
-        for(int f=0;f<tonnelQuantity;f++){
-            int a = layers[2].planets[1].tonnels.get(1).cost;
-
-            System.out.println(a);
-        }
-    }
-    private static int chooseCheapWayh34(Layer[] layers){
-        int s = 0;int j = 0;
-
-        for (;;) {
-            for (int i = 0; i < layers.length; i++) {
-                ArrayList<Tonnel>  wayTonnels  =new ArrayList<Tonnel>();
-                Way way = new Way(wayTonnels);
-                for (; s < layers[i].planets.length; ) {
-                    for (; j < layers[i].planets[s].tonnels.size(); ) {
-                        wayTonnels.add(layers[i].planets[s].tonnels.get(j));
-                        way.cost += layers[i].planets[s].tonnels.get(j).cost;
-                    }
-                }
-
-            }
-            s++;
-            j++;
-        }
-    }
-
-
-    private static int chooseCheapWayh354(Layer[] layers) {
-        int i = 0;
-        int s = 0;
-        int j = 0;
-        ArrayList<Tonnel> wayTonnels = new ArrayList<Tonnel>();
-        for (; ; ) {
-            Way way = new Way(wayTonnels);
-            for (int i = 0; i < layers.length; i++) {
-                for (; s < layers[i].planets.length; ) {
-                    for (; j < layers[i].planets[s].tonnels.size(); ) {
-
-                        wayTonnels.add(layers[i].planets[s].tonnels.get(j));
-                        way.cost += layers[i].planets[s].tonnels.get(j).cost;
-
-                    }
-                }
-            }
-        }
-    }
-
-
-
-        private static int chooseCheapWayh3545(Layer[] layers) {
-            ArrayList<Tonnel> wayTonnels = new ArrayList<Tonnel>();
-            Way way = new Way(wayTonnels);
-            for (int i = layers.length - 1; i > 0; i--) {
-                for (int s = layers[i].planets.length - 1; s > 0; ) {
-                    for (int j = layers[i].planets[s].tonnels.size() - 1; j > 0; ) {
-                        if (i == 2) {
-                            wayTonnels.add(layers[i].planets[s].tonnels.get(j));
-                            way.cost += layers[i].planets[s].tonnels.get(j).cost;
-                            ways.add(new Way(wayTonnels));
-                        } else {
-                            layers[i].planets[s].tonnels.get(j);
-                            if (layers[i].planets[s].tonnels.size() > 1) {
-                                ways.add(new Way(wayTonnels));
-                            }
-                        }
-
-                    }
-                    j-- s--
-
-                }
-            }
-
-
-            private static int chooseCheapWayh35425 (Layer[]layers){
-                ArrayList<Tonnel> wayTonnels = new ArrayList<Tonnel>();
-                Way way = new Way(wayTonnels);
-                for (int i = layers.length - 1; i > 0; i--) {
-                    for (int s = layers[i].planets.length - 1; s > 0; ) {
-                        for (int j = layers[i].planets[s].tonnels.size() - 1; j > 0; ) {
-                            if (i == 2) {
-                                wayTonnels.add(layers[i].planets[s].tonnels.get(j));
-                                way.cost += layers[i].planets[s].tonnels.get(j).cost;
-                                ways.add(new Way(wayTonnels));
-                            }
-                            for (int i = layers.length - 1 - 1; i > 0; i--) {
-                                for (int s = layers[i].planets.length - 1; s > 0; ) {
-                                    for (int j = layers[i].planets[s].tonnels.size() - 1; j > 0; ) {
-                                        way.cost += layers[i].planets[s].tonnels.get(j).cost;
-                                        wayTonnels.add(layers[i].planets[s].tonnels.get(j));
-                                        wayTonnelstmp = wayTonnels;
-                                        for (int i = layers.length - 1 - 1 - 1; i > 0; i--) {
-                                            for (int s = layers[i].planets.length - 1; s > 0; ) {
-                                                for (int j = layers[i].planets[s].tonnels.size() - 1; j > 0; ) {
-                                                    way.cost += layers[i].planets[s].tonnels.get(j).cost;
-                                                    wayTonnels.add(layers[i].planets[s].tonnels.get(j));
-                                                }
-                                            }
-                                        }
-                                        wayTonnels = wayTonnelstmp;
-
-
-                                    }
-
-                            else{
-                                        layers[i].planets[s].tonnels.get(j);
-                                        if (layers[i].planets[s].tonnels.size() > 1) {
-                                            ways.add(new Way(wayTonnels));
-                                        }
-                                    }
-
-                                } j-- s--
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        private static int chooseCheapWayh355425(Layer[] layers){
-            for (int j = layers[i].planets[s].tonnels.size()-1; j >0; j++){
-
-            }
-            }
-
-
-    public void initialize() throws FileNotFoundException {
-        Layer[] layers = Main.readFromFile();
-
-        HashMap<String, Planet> ways =new HashMap<>();
-
-        HashMap<String, Planet> map =new HashMap<>();
-
-        ArrayList<Tonnel> tonnels = new ArrayList<>();
-        Planet planet =new Planet(tonnels);
-        Tonnel t = new Tonnel();
-        t.setTo(1);
-        tonnels.add(t);
-
-        Tonnel tt = new Tonnel();
-        t.setTo(2);
-        tonnels.add(t);
-        tonnels.add(tt);
-
-        map.put("0.1", planet);
-
-
-        for(int  i = 0; i < layers.length; i++){
-            String mapKey;
-            for (int s = 0; s < layers[i].planets.length; s++) {
-                String key = (String.valueOf(i+1)+"."+String.valueOf(s+1));
-                map.put(key,layers[i].planets[s]);
-                for (int j = 0; j < layers[i].planets[s].tonnels.size(); j++){
-                    mapKey = i+"."+String.valueOf(layers[i].planets[s].tonnels.get(j).from);
-                    map.get(mapKey).tonnels.get(j).cost;
-                }
-            }
-
-        }
-
-
-ArrayList<Way>wwww=new ArrayList<>();
-
-        int pl=1;
-        String key= "0.1";
-        for( int j = 0; j < map.get(key).tonnels.size();j++) {
-      //  key = String.valueOf(0) +"."+String.valueOf(map.get(key).tonnels.get(j).to);
-        Way way =new Way();
-
-        for(int  i = 1; i <= layers.length; i++){
-           // key = String.valueOf(i)+"."+String.valueOf(pl);
-
-               way.cost+=map.get(key).tonnels.get(j).cost;
-               way.tonnels.add(map.get(key).tonnels.get(j));
-              key = String.valueOf(i) +"."+String.valueOf(map.get(key).tonnels.get(j).to);
-           }
-            wwww.add(way);
-        }
-
-
+        ArrayList<Way> ways = calcCosts(layers);
+        for(int i = 0; i<ways.size() ; i++)
+            System.out.println(ways.get(i).cost);
 
     }
 
 
+    public static ArrayList<Way> step23(Layer[] layers, int i, int p, int cost, ArrayList<Tonnel> wayTonnels, ArrayList<Way> ways){
 
-    public void countWays(Layer[] layers){
-int qt = 2;
+            int qt = layers[i].planets[p].tonnels.size();
+            for (int j = 0; j < qt; ) {
+                wayTonnels.add(layers[i].planets[p].tonnels.get(j));
+                cost += layers[i].planets[p].tonnels.get(j).cost;
+                i--;
+                if (i >= 0) {
+                    step23(layers, i, layers[i].planets[p].tonnels.get(j).from-1, cost, wayTonnels, ways); //рекурсия
+                } else {
+                    Way way = new Way(wayTonnels, cost);
+                    ways.add(way);
+                    j++;
+                    break;
+                }
+            }
+            return ways;
+    }
+
+
+    public static ArrayList<Way> calcCosts(Layer[] layers){
+        ArrayList<Tonnel> wayTonnels = new ArrayList<>();
+        ArrayList<Way> ways = new ArrayList<>();
+        int i= layers.length-1;
+        int p = layers[layers.length-1].planets.length-1;
         int cost = 0;
-        Planet planet = layers[0].planets[0];
-        int p=0;
-        ArrayList<Tonnel> ways = new ArrayList<>();
-        for (int i = 0; i<layers.length;){
-            Way way = new Way(ways, cost);
-            step();
-            }
-        }
-
-    }
-
-    public void step(Layer[] layers){
-        for (int j=0; j<qt;) {
-            Way way = new Way(ways, cost);
-            ways.add(layers[i].planets[p].tonnels.get(j));
-            cost += layers[i].planets[p].tonnels.get(j).cost;
-            p = layers[i].planets[p].tonnels.get(j).to;
-        }qt=layers[i].planets[p].tonnels.size();
-    }
-
-    public void step2(Layer[] layers){
-//        int i = layers.length;
-//        int p = layers[layers.length-1].planets.length;
-
-    for (int j=0; j<qt;) {
-            Way way = new Way(ways, cost);
-            ways.add(layers[i].planets[p].tonnels.get(j));
-            cost += layers[i].planets[p].tonnels.get(j).cost;
-            p = layers[i].planets[p].tonnels.get(j).to;
-        }qt=layers[i].planets[p].tonnels.size();
-    }
+        step23(layers, i, p, cost, wayTonnels,ways);
+        return ways;
 
 
+}
 
 
 
