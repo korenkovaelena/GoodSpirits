@@ -14,33 +14,54 @@ public class Main {
     }
 
 
-    public static ArrayList<Way> step23(Layer[] layers, int i, int p, int cost, ArrayList<Tonnel> wayTonnels, ArrayList<Way> ways){
+    public static ArrayList<Way> step23(Layer[] layers,  int p,  int i, int cost, ArrayList<Tonnel> wayTonnels, ArrayList<Way> ways){
+int flag;
+int tmp;
+          int qt = layers[i].planets[p].tonnels.size();
+            for (int j =qt-1; j >=0; j--) {
 
-            int qt = layers[i].planets[p].tonnels.size();
-            for (int j = 0; j < qt; ) {
                 wayTonnels.add(layers[i].planets[p].tonnels.get(j));
                 cost += layers[i].planets[p].tonnels.get(j).cost;
-                i--;
-                if (i >= 0) {
-                    step23(layers, i, layers[i].planets[p].tonnels.get(j).from-1, cost, wayTonnels, ways); //рекурсия
+                tmp=p;
+
+                flag=i-1;
+                if (flag >= 0) {
+                    p=layers[i].planets[p].tonnels.get(j).from-1;
+                    i--;
+
+                    step23(layers,p ,i,  cost, wayTonnels, ways);
+                    i++;                                                //странное с бубном
+                    p=tmp;                                                  //странное с бубном
+                    cost -= layers[i].planets[p].tonnels.get(j).cost;   //странное с бубном
+                   // j++;//рекурсия
                 } else {
                     Way way = new Way(wayTonnels, cost);
                     ways.add(way);
-                    j++;
-                    break;
+                    System.out.println(cost);
+
+                  // break;
                 }
+
             }
+
             return ways;
     }
 
 
     public static ArrayList<Way> calcCosts(Layer[] layers){
-        ArrayList<Tonnel> wayTonnels = new ArrayList<>();
         ArrayList<Way> ways = new ArrayList<>();
         int i= layers.length-1;
-        int p = layers[layers.length-1].planets.length-1;
-        int cost = 0;
-        step23(layers, i, p, cost, wayTonnels,ways);
+       // int p = layers[layers.length-1].planets.length-1;
+
+
+       // for (int s =0; s<layers[layers.length-1].planets.length; s++) {
+        for ( int p = layers[layers.length-1].planets.length-1; p>=0; p--){
+            int cost = 0;
+            ArrayList<Tonnel> wayTonnels = new ArrayList<>();
+            int qt = layers[i].planets[p].tonnels.size();
+            step23(layers, p, i, cost, wayTonnels, ways);
+           ;
+        }
         return ways;
 
 
