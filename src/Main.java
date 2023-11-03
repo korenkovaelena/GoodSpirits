@@ -8,30 +8,27 @@ public class Main {
         Layer[] layers = readFromFile();
         System.out.println(layers[0].planets[1].tonnels);
         ArrayList<Way> ways = calcCosts(layers);
-        for(int i = 0; i<ways.size() ; i++)
-            System.out.println(ways.get(i).cost);
+//        for(int i = 0; i<ways.size() ; i++)
+//            System.out.println(ways.get(i).cost);
 
     }
 
 
     public static ArrayList<Way> step23(Layer[] layers,  int p,  int i, int cost, ArrayList<Tonnel> wayTonnels, ArrayList<Way> ways){
-int flag;
-int tmp;
+
           int qt = layers[i].planets[p].tonnels.size();
             for (int j =qt-1; j >=0; j--) {
 
                 wayTonnels.add(layers[i].planets[p].tonnels.get(j));
                 cost += layers[i].planets[p].tonnels.get(j).cost;
-                tmp=p;
 
-                flag=i-1;
-                if (flag >= 0) {
-                    p=layers[i].planets[p].tonnels.get(j).from-1;
-                    i--;
+                if (i > 0) {
+                    //p=layers[i].planets[p].tonnels.get(j).from-1;
 
-                    step23(layers,p ,i,  cost, wayTonnels, ways);
-                    i++;                                                //странное с бубном
-                    p=tmp;                                                  //странное с бубном
+
+                    step23(layers,layers[i].planets[p].tonnels.get(j).from-1 ,i-1,  cost, wayTonnels, ways);
+                                                                   //странное с бубном
+                                                                  //странное с бубном
                     cost -= layers[i].planets[p].tonnels.get(j).cost;   //странное с бубном
                    // j++;//рекурсия
                 } else {
